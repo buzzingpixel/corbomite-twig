@@ -1,0 +1,36 @@
+{
+    "name": "buzzingpixel/corbomite-twig",
+    "description": "Corbomite Twig",
+    "version": "1.0.0",
+    "license": "Apache-2.0",
+    "homepage": "https://buzzingpixel.com/",
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "composer/composer": "^1.8",
+        "buzzingpixel/corbomite-di": "^1.0",
+        "twig/twig": "^2.5"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "phpunit/phpunit": "^7.2",
+        "squizlabs/php_codesniffer": "^3.4",
+        "phpmd/phpmd": "^2.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "corbomite\\twig\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "corbomite\\tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "diConfigFilePath": "src/diConfig.php"
+    }
+}
