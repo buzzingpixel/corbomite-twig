@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+use corbomite\di\Di;
+use corbomite\twig\TwigEnvironment;
+
+define('APP_BASE_PATH', __DIR__);
+
+require_once 'vendor/autoload.php';
+
+var_dump(Di::get(TwigEnvironment::class));
+die;

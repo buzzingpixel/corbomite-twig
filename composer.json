@@ -31,6 +31,14 @@
         "optimize-autoloader": true
     },
     "extra": {
-        "diConfigFilePath": "src/diConfig.php"
+        "diConfigFilePath": "src/diConfig.php",
+        "-twigGlobalsFilePath": "path/to/globals.php",
+        "-twigExtensions": [
+            "some\\vendor\\some\\class"
+        ],
+        "-twigTemplatesDirectories": {
+            "": "path/to/dir",
+            "namespace": "path/to/dir"
+        }
     }
 }
