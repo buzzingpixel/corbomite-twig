@@ -49,7 +49,7 @@ class TwigEnvironmentFactory
                     }
 
                     if (! $class) {
-                        $class = new $class();
+                        $class = new $twigExtension();
                     }
 
                     $twig->addExtension($class);
