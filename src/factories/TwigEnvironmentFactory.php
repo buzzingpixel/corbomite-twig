@@ -19,16 +19,11 @@ class TwigEnvironmentFactory
             throw new Exception('APP_BASE_PATH must be defined');
         }
 
-        defined('TWIG_CACHE_PATH') || define(
-            'TWIG_CACHE_PATH',
-            APP_BASE_PATH . '/cache'
-        );
-
         $debug = getenv('DEV_MODE') === 'true';
 
         $twig = new TwigEnvironment(new FilesystemLoader(), [
             'debug' => $debug,
-            'cache' => TWIG_CACHE_PATH,
+            'cache' => getenv('TWIG_CACHE_PATH') ?: APP_BASE_PATH . '/cache',
             'strict_variables' => $debug,
         ]);
 
