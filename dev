@@ -1,6 +1,12 @@
 #!/usr/bin/env php
 <?php
 
+/**
+ * @author TJ Draper <tj@buzzingpixel.com>
+ * @copyright 2019 BuzzingPixel, LLC
+ * @license Apache-2.0
+ */
+
 use corbomite\di\Di;
 use corbomite\twig\TwigEnvironment;
 
