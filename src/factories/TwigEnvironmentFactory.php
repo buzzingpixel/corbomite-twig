@@ -54,7 +54,7 @@ class TwigEnvironmentFactory
             $twig->addExtension($class);
         }
 
-        foreach ($collector->getExtraKeyAsArray('twigTemplatesDirectories') as $n => $p) {
+        foreach ($this->getTemplateDirectories() as $n => $p) {
             $loader = $twig->getLoader();
             $namespace = $n ?: $loader::MAIN_NAMESPACE;
             /** @noinspection PhpUnhandledExceptionInspection */
@@ -66,5 +66,56 @@ class TwigEnvironmentFactory
         }
 
         return $twig;
+    }
+
+    public function getTemplateDirectories(): array
+    {
+        $dirs = [];
+
+        $collector = CollectorFactory::collector();
+
+        $item = $collector->getExtraKeyFromPath(
+            APP_BASE_PATH,
+            'twigTemplatesDirectories'
+        );
+        $item = \is_array($item) ? $item : [];
+
+        foreach ($item as $k => $v) {
+            $dirs[$k] = APP_BASE_PATH . DIRECTORY_SEPARATOR . $v;
+        }
+
+        $vendorIterator = CollectorFactory::directoryIterator(
+            APP_BASE_PATH . DIRECTORY_SEPARATOR . 'vendor'
+        );
+
+        foreach ($vendorIterator as $fileInfo) {
+            if ($fileInfo->isDot() || ! $fileInfo->isDir()) {
+                continue;
+            }
+
+            $providerIterator = CollectorFactory::directoryIterator(
+                $fileInfo->getPathname()
+            );
+
+            foreach ($providerIterator as $providerFileInfo) {
+                if ($providerFileInfo->isDot() ||
+                    ! $providerFileInfo->isDir()
+                ) {
+                    continue;
+                }
+
+                $item = $collector->getExtraKeyFromPath(
+                    $providerFileInfo->getPathname(),
+                    'twigTemplatesDirectories'
+                );
+                $item = \is_array($item) ? $item : [];
+
+                foreach ($item as $k => $v) {
+                    $dirs[$k] = $providerFileInfo->getPathname() . DIRECTORY_SEPARATOR . $v;
+                }
+            }
+        }
+
+        return $dirs;
     }
 }

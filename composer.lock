@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "61ff323d3f695fb65542a19a6e8e42a7",
+    "content-hash": "ae504dc463317155fee920754ad5d546",
     "packages": [
         {
             "name": "buzzingpixel/corbomite-config-collector",
-            "version": "1.0.2",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/buzzingpixel/corbomite-config-collector.git",
-                "reference": "8ad3cb2e87adf2ab02256c13693266d45aa9a69e"
+                "reference": "167c077dd1642d2cd12140a41ca96f09f09eba25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/buzzingpixel/corbomite-config-collector/zipball/8ad3cb2e87adf2ab02256c13693266d45aa9a69e",
-                "reference": "8ad3cb2e87adf2ab02256c13693266d45aa9a69e",
+                "url": "https://api.github.com/repos/buzzingpixel/corbomite-config-collector/zipball/167c077dd1642d2cd12140a41ca96f09f09eba25",
+                "reference": "167c077dd1642d2cd12140a41ca96f09f09eba25",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                 }
             ],
             "description": "Corbomite Config Collector",
-            "time": "2019-01-11T23:05:47+00:00"
+            "time": "2019-01-13T00:17:00+00:00"
         },
         {
             "name": "buzzingpixel/corbomite-di",
@@ -150,16 +150,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.1.1",
+            "version": "v4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610"
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
-                "reference": "8aae5b59b83bb4d0dbf07b0a835f2680a658f610",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
                 "shasum": ""
             },
             "require": {
@@ -175,7 +175,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.1-dev"
+                    "dev-master": "4.2-dev"
                 }
             },
             "autoload": {
@@ -197,7 +197,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2018-12-26T11:32:39+00:00"
+            "time": "2019-01-12T16:31:37+00:00"
         },
         {
             "name": "php-di/invoker",
