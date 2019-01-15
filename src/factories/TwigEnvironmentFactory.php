@@ -13,6 +13,7 @@ use LogicException;
 use corbomite\di\Di;
 use Twig\Loader\FilesystemLoader;
 use Twig\Extension\DebugExtension;
+use buzzingpixel\minify\MinifyApi;
 use corbomite\twig\TwigEnvironment;
 use corbomite\configcollector\Factory as CollectorFactory;
 
@@ -26,11 +27,18 @@ class TwigEnvironmentFactory
 
         $debug = getenv('DEV_MODE') === 'true';
 
-        $twig = new TwigEnvironment(new FilesystemLoader(), [
-            'debug' => $debug,
-            'cache' => getenv('TWIG_CACHE_PATH') ?: APP_BASE_PATH . '/cache',
-            'strict_variables' => $debug,
-        ]);
+        /** @noinspection PhpUnhandledExceptionInspection */
+        $minifyApi = Di::get(MinifyApi::class);
+
+        $twig = new TwigEnvironment(
+            new FilesystemLoader(),
+            [
+                'debug' => $debug,
+                'cache' => getenv('TWIG_CACHE_PATH') ?: APP_BASE_PATH . '/cache',
+                'strict_variables' => $debug,
+            ],
+            $minifyApi
+        );
 
         $collector = CollectorFactory::collector();
 

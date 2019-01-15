@@ -1,14 +1,15 @@
 {
     "name": "buzzingpixel/corbomite-twig",
     "description": "Corbomite Twig",
-    "version": "1.0.4",
+    "version": "1.1.0",
     "license": "Apache-2.0",
     "homepage": "https://buzzingpixel.com/",
     "require": {
         "php": ">=7.2",
         "buzzingpixel/corbomite-di": "^1.0.1",
         "twig/twig": "^2.5",
-        "buzzingpixel/corbomite-config-collector": "^1.0.4"
+        "buzzingpixel/corbomite-config-collector": "^1.0.4",
+        "buzzingpixel/minify": "^1.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
