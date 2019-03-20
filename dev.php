@@ -1,4 +1,3 @@
-#!/usr/bin/env php
 <?php
 
 /**
@@ -15,10 +14,9 @@ use corbomite\twig\TwigEnvironment;
 require_once 'vendor/autoload.php';
 
 $whoops = new \Whoops\Run;
-$whoops->pushHandler(new \Whoops\Handler\PlainTextHandler());
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler());
 $whoops->register();
 
 require_once __DIR__ . '/devDumper.php';
 
-var_dump(Di::get(TwigEnvironment::class));
-die;
+dd(Di::get(TwigEnvironment::class));

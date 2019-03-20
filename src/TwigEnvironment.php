@@ -10,10 +10,10 @@ declare(strict_types=1);
 namespace corbomite\twig;
 
 use Twig\Environment;
-use Twig_Error_Loader;
-use Twig_Error_Syntax;
-use Twig_Error_Runtime;
-use Twig_LoaderInterface;
+use Twig\Error\SyntaxError;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Loader\LoaderInterface;
 use Twig\Loader\FilesystemLoader;
 use buzzingpixel\minify\interfaces\MinifyApiInterface;
 
@@ -22,7 +22,7 @@ class TwigEnvironment extends Environment
     private $minifyApi;
 
     public function __construct(
-        Twig_LoaderInterface $loader,
+        LoaderInterface $loader,
         array $options,
         MinifyApiInterface $minifyApi
     ) {
@@ -33,7 +33,9 @@ class TwigEnvironment extends Environment
 
     public function getLoader(): FilesystemLoader
     {
-        return parent::getLoader();
+        /** @var FilesystemLoader $fileSystemLoader */
+        $fileSystemLoader = parent::getLoader();
+        return $fileSystemLoader;
     }
 
     /**
@@ -41,9 +43,9 @@ class TwigEnvironment extends Environment
      * @param array $context
      * @param array $minifyOptions
      * @return string
-     * @throws Twig_Error_Loader
-     * @throws Twig_Error_Runtime
-     * @throws Twig_Error_Syntax
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      */
     public function renderAndMinify(
         string $template,

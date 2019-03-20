@@ -6,7 +6,9 @@ Provides a very light wrapper around Twig.
 
 ## Usage
 
-Note: `APP_BASE_PATH` must be defined as a constant.
+### `APP_BASE_PATH`
+
+The `APP_BASE_PATH` constant can be defined if you'd like to set it explicitly. Otherwise. Corbomite Twig will figure it out automagically.
 
 Use the [Corbomite Dependency Injector](https://github.com/buzzingpixel/corbomite-di) to get the Twig environment instance.
 
