@@ -90,6 +90,10 @@ return [
             $minifyApi
         );
 
+        if ($debug) {
+            $twig->addExtension(new DebugExtension());
+        }
+
         $collector = CollectorFactory::collector();
 
         foreach ($collector->collect('twigGlobalsFilePath') as $key => $val) {
@@ -117,10 +121,6 @@ return [
             $namespace = $n ?: $loader::MAIN_NAMESPACE;
             /** @noinspection PhpUnhandledExceptionInspection */
             $twig->getLoader()->addPath($p, $namespace);
-        }
-
-        if ($debug) {
-            $twig->addExtension(new DebugExtension());
         }
 
         return $twig;
