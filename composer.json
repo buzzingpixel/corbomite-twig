@@ -9,7 +9,7 @@
         "buzzingpixel/corbomite-config-collector": "^1.1",
         "buzzingpixel/corbomite-di": "^1.1",
         "buzzingpixel/minify": "^1.1",
-        "twig/twig": "^2.7"
+        "twig/twig": "^3.11"
     },
     "require-dev": {
         "filp/whoops": "^2.3",
